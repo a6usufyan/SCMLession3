@@ -9,10 +9,10 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:        #0a0c10;
+  --bg:        #121212;
   --surface:   #111318;
   --border:    #1e2128;
-  --accent:    #e8c14d;       /* warm gold — sun-across-timezones */
+  --accent:    #174de2;       /* warm gold — sun-across-timezones */
   --accent2:   #4d8fe8;       /* cool blue for contrast */
   --text:      #e8eaf0;
   --muted:     #6b7280;
@@ -55,7 +55,7 @@ header::before {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
-  border: 1px solid rgba(232,193,77,0.3);
+  border: 1px solid rgba(0, 21, 255, 0.3);
   padding: 4px 14px;
   border-radius: 100px;
   margin-bottom: 20px;
@@ -102,7 +102,7 @@ main {
 
 .clock-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(232,193,77,0.35);
+  border-color: rgba(0, 119, 255, 0.35);
 }
 
 .card-img-wrap {

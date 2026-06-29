@@ -31,6 +31,11 @@ Open `index.html` in any modern browser. No build step required.
 - Updated `index.html` to improve the page header copy and subtitle text.
 - Times now display in 24-hour format using the `en-GB` locale.
 
+### Update 2
+- Changed the background color to a deeper black.
+- Update the accent colour to an electric blue.
+- Updated the city card hover state colour to match the accent colour.  
+- Updates 'styles.css', 'readme.txt', and 'index.html'.
 ---
 
 *SCM Assignment 3 — Bayero University Kano*
