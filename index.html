@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Clock — Global Timezones</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <span class="eyebrow">Live World Clock — Updated</span>
+      <h1>Every Hour, Somewhere</h1>
+      <p class="subtitle">Six cities. Six time zones. One planet ticking in real time.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="clock-grid" id="clockGrid">
+
+      <div class="clock-card" data-tz="America/New_York" data-city="New York" data-country="United States">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="New York skyline" />
+          <span class="badge">UTC −5</span>
+        </div>
+        <div class="card-body">
+          <h2 class="city">New York</h2>
+          <p class="country">United States</p>
+          <p class="time" id="time-America/New_York">--:--:--</p>
+          <p class="date" id="date-America/New_York">---</p>
+        </div>
+      </div>
+
+      <div class="clock-card" data-tz="Europe/London" data-city="London" data-country="United Kingdom">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80" alt="London skyline" />
+          <span class="badge">UTC +0</span>
+        </div>
+        <div class="card-body">
+          <h2 class="city">London</h2>
+          <p class="country">United Kingdom</p>
+          <p class="time" id="time-Europe/London">--:--:--</p>
+          <p class="date" id="date-Europe/London">---</p>
+        </div>
+      </div>
+
+      <div class="clock-card" data-tz="Africa/Lagos" data-city="Lagos" data-country="Nigeria">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1696339058184-2e6d1da36ad3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+          alt="Lagos skyline" />
+          <span class="badge">UTC +1</span>
+        </div>
+        <div class="card-body">
+          <h2 class="city">Lagos</h2>
+          <p class="country">Nigeria</p>
+          <p class="time" id="time-Africa/Lagos">--:--:--</p>
+          <p class="date" id="date-Africa/Lagos">---</p>
+        </div>
+      </div>
+
+      <div class="clock-card" data-tz="Asia/Dubai" data-city="Dubai" data-country="United Arab Emirates">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80" alt="Dubai skyline" />
+          <span class="badge">UTC +4</span>
+        </div>
+        <div class="card-body">
+          <h2 class="city">Dubai</h2>
+          <p class="country">United Arab Emirates</p>
+          <p class="time" id="time-Asia/Dubai">--:--:--</p>
+          <p class="date" id="date-Asia/Dubai">---</p>
+        </div>
+      </div>
+
+      <div class="clock-card" data-tz="Asia/Tokyo" data-city="Tokyo" data-country="Japan">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&q=80" alt="Tokyo skyline" />
+          <span class="badge">UTC +9</span>
+        </div>
+        <div class="card-body">
+          <h2 class="city">Tokyo</h2>
+          <p class="country">Japan</p>
+          <p class="time" id="time-Asia/Tokyo">--:--:--</p>
+          <p class="date" id="date-Asia/Tokyo">---</p>
+        </div>
+      </div>
+
+      <div class="clock-card" data-tz="Australia/Sydney" data-city="Sydney" data-country="Australia">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=600&q=80" alt="Sydney Opera House" />
+          <span class="badge">UTC +11</span>
+        </div>
+        <div class="card-body">
+          <h2 class="city">Sydney</h2>
+          <p class="country">Australia</p>
+          <p class="time" id="time-Australia/Sydney">--:--:--</p>
+          <p class="date" id="date-Australia/Sydney">---</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>Times update every second &nbsp;·&nbsp; Built for SCM Assignment 3</p>
+  </footer>
+
+  <script>
+    const zones = [
+      "America/New_York",
+      "Europe/London",
+      "Africa/Lagos",
+      "Asia/Dubai",
+      "Asia/Tokyo",
+      "Australia/Sydney"
+    ];
+
+    function tick() {
+      const now = new Date();
+      zones.forEach(tz => {
+        const timeEl = document.getElementById("time-" + tz);
+        const dateEl = document.getElementById("date-" + tz);
+        if (!timeEl) return;
+
+        const timeStr = now.toLocaleTimeString("en-GB", { timeZone: tz, hour12: false });
+        const dateStr = now.toLocaleDateString("en-GB", {
+          timeZone: tz,
+          weekday: "short",
+          day: "numeric",
+          month: "short",
+          year: "numeric"
+        });
+
+        timeEl.textContent = timeStr;
+        dateEl.textContent = dateStr;
+      });
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  </script>
+
+</body>
+</html>
